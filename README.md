@@ -7,5 +7,6 @@ Requirements:
 
 Usage:
 
-    python3 hxl-datasets.py
+    python3 hdx-datasets.py
 
+The output will contain HXL hashtags to simplify processing and reporting. See http://hxlstandard.org for details.
