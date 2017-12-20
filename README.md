@@ -1,4 +1,4 @@
-Free script to crawl data.humdata.org and list all public datasets, with basic metadata
+Free script to crawl https://data.humdata.org and list all public datasets, with basic metadata
 
 Requirements:
 
