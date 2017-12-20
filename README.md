@@ -7,5 +7,5 @@ Requirements:
 
 Usage:
 
-    python3 hxl-resources.py
+    python3 hxl-datasets.py
 

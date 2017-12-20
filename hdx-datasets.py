@@ -35,11 +35,20 @@ output.writerow([
     'Date modified',
     'Organization stub',
     'Organization title',
-    'Country stub',
-    'Country title',
     'Tags',
     'Total resource downloads',
     'Pageviews (last 14 days)'
+])
+output.writerow([
+    '#x_dataset +id',
+    '#x_dataset +name',
+    '#date +created',
+    '#date +modified',
+    '#org +id',
+    '#org +name',
+    '#x_tags',
+    '#meta +downloads',
+    '#meta +pageviews'
 ])
 while start < result_count:
     result = ckan.action.package_search(start=start, rows=CHUNK_SIZE)
@@ -47,12 +56,6 @@ while start < result_count:
     logging.info("Read {} package(s)...".format(len(result['results'])))
     for package in result['results']:
         tags = ",".join([tag['name'] for tag in package['tags']])
-        try:
-            group_name = package['groups'][0]['name'],
-            group_title = package['groups'][0]['title'],
-        except:
-            group_name = ''
-            group_title= ''
         output.writerow([
             package['name'],
             package['title'],
@@ -60,8 +63,6 @@ while start < result_count:
             package['metadata_modified'][:10],
             package['organization']['name'],
             package['organization']['title'],
-            group_name,
-            group_title,
             tags,
             package['total_res_downloads'],
             package['pageviews_last_14_days']
